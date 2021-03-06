@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <div style = "margin:10px 10px; width:50%; margin:10px auto;" class="card bg-dark text-white ">
+        <h3 style="margin:10px auto;">Live News Update</h3>
+    </div>
+    {% for i in range(0,number) %}
+        <div style = "background-color:orange;margin:10px 10px; width:50%; margin:10px auto;" class="card bg-dark text-white">
+            <div class="row">
+                <div class=" col-lg-9 col-md-9 col-sm-9 col-xs-9 pt-5 justify-content-center" style="margin:10px auto;">
+                    <h3 style="margin-left:5px;">{{data['articles'][i]['title']}}</h3>
+                    <h5 style="margin-left:5px;">Article by {{data['articles'][i]['author']}}</h5>
+                    <p style="margin-left:5px;">{{data['articles'][i]['description']}}</p>
+                    <a href="{{data['articles'][0]['url']}}" style="margin-left:5px;">ReadMore...</a>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 justify-content-center" style="margin:30px auto;">
+                    <img src="{{data['articles'][i]['urlToImage']}}" alt="news related image" style="height:150px; width:150px;">
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>  
+{% endblock content %}
